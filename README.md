@@ -1,2 +1,2 @@
 # bind
-bind useful scripts
+Useful scripts to simplify BIND DNS server management and maintenance.
