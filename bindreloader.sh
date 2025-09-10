@@ -33,16 +33,16 @@ else
 
 fi
 
-echo "Restarting Bind9 in ns1"
+echo "Restarting Bind9 in nameserver"
     $restartbind && sleep 2 && systemctl status bind9 |grep ago
 
-if [[ $(dig @localhost esiee.fr. |grep ANSWER: |awk '{print $10}' | cut -f1 -d ",") = "1" ]]; then
+if [[ $(dig @localhost entreprise.fr. |grep ANSWER: |awk '{print $10}' | cut -f1 -d ",") = "1" ]]; then
 
 echo "Restarting Bind9 in ns3"
     ssh ns3 "$refreshbind && sleep 2 && systemctl status bind9 |grep ago"
 
-echo "Restarting Bind9 in system-po"
-    ssh 10.64.160.13 "$refreshbind && sleep 2 && systemctl status bind9 |grep ago"
+echo "Restarting Bind9 in ns4"
+    ssh 10.64.50.50 "$refreshbind && sleep 2 && systemctl status bind9 |grep ago"
 
 echo "Script terminated, if errors please look out"
 
