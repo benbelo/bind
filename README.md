@@ -1,0 +1,2 @@
+# bind
+bind useful scripts
